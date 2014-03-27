@@ -77,10 +77,10 @@
 
         function movedown(){
             $.ajax({
-                url:'/game/post/'+userid,
+                url:'/kaiju/game/post/'+userid,
                 type:'post',
                 error:function(){
-                    location.href='http://localhost:3000/showResult';
+                    //location.href='http://localhost:3000/showResult';
                 }
                 }).done(function(data){
                     $('.wordblock').html('');
@@ -100,16 +100,18 @@
 
         function addword(){
             $.ajax({
-                url:'/game/put/'+userid,
+                url:'/kaiju/game/put/'+userid,
                 type:'put'
                 }).done(function(data){
+                $('.wordblock').html('');
+                render_word(data);
             });
         }
 
         });
         $('#kill').bind('click', function(){
             $.ajax({
-                url:'/game/del/'+userid+'/'+$('#kill_word').val(),
+                url:'/kaiju/game/del/'+userid+'/'+$('#kill_word').val(),
                 type:'delete',
                 content:$('#kill_word').val()
             }).done(function(data){

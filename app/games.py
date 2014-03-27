@@ -29,7 +29,7 @@ class WordGames(MethodView):
     @login_required
     def get(self, userid):
         user = User.objects.with_id(userid)
-        room[userid]={
+        room["game"]={
             "user": ObjectId(userid),
             "status":'live',
             "game":{
@@ -40,7 +40,7 @@ class WordGames(MethodView):
             }
         }
 
-        display[userid] = dict({
+        display["game"] = dict({
             "a" : list(['']*5),
             "b" : list(['']*5),
             "c" : list(['']*5),
@@ -48,7 +48,7 @@ class WordGames(MethodView):
             "e" : list(['']*5)
         })
         return render_template('game.html',
-                display=display[userid],
+                display=display["game"],
                 u = user,
                 chat_ip = app.config["CHATROOM"])
     def post(self, userid):
@@ -99,7 +99,7 @@ class WordGames(MethodView):
 
 games_view = WordGames.as_view('games')
 games.add_url_rule('/kaiju/game/<userid>',
-        view_func = games_view, methods=['GET'])
+                view_func = games_view, methods=['GET'])
 games.add_url_rule('/kaiju/game/put/<userid>', view_func=games_view, methods=['PUT'])
 games.add_url_rule('/kaiju/game/post/<userid>', view_func=games_view, methods=['POST'])
 games.add_url_rule('/kaiju/game/del/<userid>/<word>', view_func=games_view, methods=['DELETE'])
