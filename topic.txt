@@ -1,0 +1,22 @@
+文字db
+前端
+
+        適合的顯示
+
+        座標系統 grid layout system
+
+        處理顯示 之後在處理移動
+
+        先儲存座標值 輸入座標值
+
+        在client 顯示座標
+
+        mongo 儲存座標？
+
+        mongo 處理座標？
+
+        schema{
+            '座標':
+            'word':
+            'from':
+        }

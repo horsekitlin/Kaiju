@@ -1,0 +1,13 @@
+*.pyc
+Chatroom/*.pyc
+app/*.pyc
+app/static/config.rb
+app/static/Gruntfile.js
+app/static/bower.json
+app/static/package.json
+app/static/scss/
+app/static/scss/*
+app/static/roborts.txt
+app/static/index.html
+app/static/humans.txt
+app/static/img/

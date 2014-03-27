@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="main_top"></div>
+<div class="container" style="padding:25px 0px;min-width:960px;">
+    <div class="row-fluid" style="height:600px;">
+        <div class="span12"></div>
+        <div style="clear:both;"></div>
+            <form action='{{ url_for("users.adduser") }}' method='POST' class="create_form">
+                <fieldset>
+                    {{ form.hidden_tag()}}
+                    {{ form.account.label}}
+                    {{ form.account() }}
+                    {{ form.pwd.label }}
+                    {{ form.pwd}}
+                    {{ form.name.label }}
+                    {{ form.name }}<br>
+                    <input type='submit' value='創立戰鬥員' class="btn btn-primary create_btn">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% for field in form %}
+    {% if field.errors %}
+    <p style='color:red'> {{ field.errors|join(' ') }} </p>
+    {% endif %}
+{% endfor %}
+{% endblock %}

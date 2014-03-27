@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="iframe">
+    <iframe src="http://nodeknockout.com/iframe/kaiju" frameborder=0 scrolling=no allowtransparency=true width=115 height=25>
+    </iframe>
+</div>
+<div class="main_top">
+    <img src="../static/img/koiju-logo-small.png"/>
+    <a href='#' class="btn btn-small btn-primary" style="margin:0px 20px 5px 20px;float:right;">登出</a>
+</div>
+<div class="container" style="padding:25px 0px;min-width:960px;">
+    <div class="span12" id="counter2"></div>
+    <div class="row-fluid main_con">
+        <div class="span1">
+        </div>
+        <div class="span5" id="game_player" style="">
+            <div class="player_name">
+                <div id='chat-area' class="talk_box" style='width:300px;height:300px;overflow:auto;'>
+                </div>
+                <div class="game_talk">
+                    <input type='text' name='message' id='txt_message'>
+                    <button id='talk' onclick="ws.send($('#txt_message').val());$('#txt_message').val(' ');" class="btn btn-inverse">Enter</button>
+                </div>
+            </div>
+        </div>
+        <div class="span5" id="game_record">
+            <div class="play_content">
+                <div class="game-box">
+                    {% for index in display %}
+                        <div id='{{ index }}'>
+                        {% for k in range(0, 5) %}
+                        <div id='{{ index }}{{ k }}' class='wordblock'></div>
+                        {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="clear"></div>
+                <div class="game_kill">
+                    <input type='text' name='kill_word' id='kill_word'>
+                    <button id='kill' class="btn btn-inverse">輸入</button>
+                </div>
+            </div>
+        </div>
+        <div class="span1">
+            <button id='start' class="btn btn-warning" style="position: relative;width: 85px;left: -100px;top: 41px;">開始遊戲</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+
+        var userid = window.location.pathname.split('/')[2];
+
+        ws = new WebSocket("{{ chat_ip }}socket?username='{{ u.name }}'");
+        ws.onmessage = function(event){
+            $('#chat-area').append(event.data + '<br />');
+        }
+        function send_message(){
+            var message = document.getElementById('txt_message').value;
+            ws.send(message);
+        }
+
+        $('#start').bind('click', function(){
+            $('#kill_word').focus();
+        var interval;
+        function countdown(){
+            interval=setInterval(function(){
+                addword();
+                movedown();
+
+            }, 3000);
+        }
+        countdown();
+
+
+        function movedown(){
+            $.ajax({
+                url:'/game/post/'+userid,
+                type:'post',
+                error:function(){
+                    location.href='http://localhost:3000/showResult';
+                }
+                }).done(function(data){
+                    $('.wordblock').html('');
+                    render_word(data);
+            });
+        }
+
+
+        function render_word(data){
+            jsondata = JSON.parse(data);
+            $.each(jsondata, function(key, d){
+                $.each(d, function(index, v){
+                    $('#'+key+index).html(v)
+                });
+            });
+        }
+
+        function addword(){
+            $.ajax({
+                url:'/game/put/'+userid,
+                type:'put'
+                }).done(function(data){
+            });
+        }
+
+        });
+        $('#kill').bind('click', function(){
+            $.ajax({
+                url:'/game/del/'+userid+'/'+$('#kill_word').val(),
+                type:'delete',
+                content:$('#kill_word').val()
+            }).done(function(data){
+            });
+        });
+        $('#addwordtest').bind('click', function(){
+            addword();
+        });
+        $('#movewordtest').bind('click', function(){
+            movedown();
+        });
+    });
+</script>
+{% endblock %}

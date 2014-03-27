@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% include "bar/topbar.html" %}
+{% for r in results %}
+<div style='text-align:center;margin:20px;'>
+    <a style='font-size:28px;' href='/result/{{ r.id }}'>{{ r.id }}</a>
+</div>
+{% endfor %}
+{% endblock %}
