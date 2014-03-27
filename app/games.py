@@ -98,8 +98,8 @@ class WordGames(MethodView):
         return dumps(delete)
 
 games_view = WordGames.as_view('games')
-games.add_url_rule('/game/<userid>',
+games.add_url_rule('/kaiju/game/<userid>',
         view_func = games_view, methods=['GET'])
-games.add_url_rule('/game/put/<userid>', view_func=games_view, methods=['PUT'])
-games.add_url_rule('/game/post/<userid>', view_func=games_view, methods=['POST'])
-games.add_url_rule('/game/del/<userid>/<word>', view_func=games_view, methods=['DELETE'])
+games.add_url_rule('/kaiju/game/put/<userid>', view_func=games_view, methods=['PUT'])
+games.add_url_rule('/kaiju/game/post/<userid>', view_func=games_view, methods=['POST'])
+games.add_url_rule('/kaiju/game/del/<userid>/<word>', view_func=games_view, methods=['DELETE'])

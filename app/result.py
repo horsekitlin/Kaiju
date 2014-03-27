@@ -14,5 +14,5 @@ class ResultListView(MethodView):
         return render_template('result.html', results = Result.objects)
 
 
-result.add_url_rule('/result/<userid>', view_func = ResultListView.as_view('list'))
+result.add_url_rule('/kaiju/result/<userid>', view_func = ResultListView.as_view('list'))
 

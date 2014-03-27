@@ -15,5 +15,5 @@ class ChatListView(MethodView):
 
 
 chat_view = ChatView.as_view('games')
-chat.add_url_rule('/chat/<userid>', defaults={'userid':None},
+chat.add_url_rule('/kaiju/chat/<userid>', defaults={'userid':None},
         view_func = chat_view, methods=['GET'])

@@ -44,7 +44,7 @@ class AddUserView(MethodView):
         u.save()
         return redirect(url_for('users.login'))
 
-users.add_url_rule('/', view_func = LoginView.as_view('login'))
-users.add_url_rule('/logout', view_func=LogoutView.as_view('logout'))
-users.add_url_rule('/adduser', view_func=AddUserView.as_view('adduser'))
+users.add_url_rule('/kaiju/', view_func = LoginView.as_view('login'))
+users.add_url_rule('/kaiju/logout/', view_func=LogoutView.as_view('logout'))
+users.add_url_rule('/kaiju/adduser/', view_func=AddUserView.as_view('adduser'))
 
