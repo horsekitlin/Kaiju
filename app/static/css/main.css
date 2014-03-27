@@ -1,0 +1,158 @@
+.clear{
+    clear:both;
+}
+#game .span4{
+    height:60px;
+}
+.wrap{
+    background:url(../img/img2.png) center center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+/****login***/
+.logo{
+    position:relative;
+    width:517px;
+    left:-94px;
+}
+.content_img{
+    background:url(../img/kaiju1.png);
+    width: 620px;
+    height: 570px;
+    position: absolute;
+    -webkit-animation: kaiju1 3s;
+    -webkit-animation-iteration-count:1;
+    left: 340px;
+    top: -15px;
+}
+@-webkit-keyframes kaiju1 {
+    0%   {left:-1000px; top:90px;background:url(../img/kaiju1.png)}
+    25%   {left:150px; top:70px;background:url(../img/kaiju2.png)}
+    50%   {left:300px; top:0px;background:url(../img/kaiju1.png)}
+    75%   {left:150px; top:20px;background:url(../img/kaiju2.png)}
+    100%  {left:340px; top:-15px;background:url(../img/kaiju1.png);}
+}
+
+.main_top{
+    background:url(../img/black960.30.png);
+    height:30px;
+    width:100%;
+}
+.iframe{
+    margin-left: 1165px;
+    position:absolute;
+    color:#fff;
+}
+.main_top img {
+margin-top: 3px;
+margin-left: 37px;
+}
+form.login_form{
+    background:url(../img/img1.png);
+    float: right;
+    padding: 25px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    color:#fff;
+    margin-top:60px;
+}
+.create_btn>input{
+    float: right;
+    position: relative;
+    top: 215px;
+    right: -245px;
+    padding: 4px 17px;
+    margin-top: 8px;
+}
+.go_btn{
+    margin-top:8px;
+    padding: 4px 20px;
+}
+/***create****/
+form.create_form{
+    background:url(../img/img1.png);
+    padding: 25px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    color:#fff;
+    margin:60px 38%;
+}
+input.create_btn{
+    margin:10px 26% 0;
+}
+/**game*/
+#game_record{
+    background:url(../img/game-play.png) no-repeat scroll 0 0 transparent;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    color:#fff;
+    height:500px;
+}
+#game_player{
+    background:url(../img/talk.png) no-repeat scroll 0 0 transparent;
+    color:#fff;
+    height:500px;
+    width: 430px;
+}
+.main_con{
+    padding:50px 0px 0 50px;
+    
+}
+.player_name{
+    width: 366px;
+    padding: 45px 30px;
+}
+.play_content{
+    width: 366px;
+    padding: 48px 30px;
+}
+.game-box{
+    height:281px;
+    margin-left:20px;
+    width:268px;
+}
+.game-box>div{
+    float:left;width:53px;
+}
+.game-box>div>div{
+    float:left;
+    width:53px;
+    height:40px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    padding-top:16px;
+/*
+    background:url(../img/Yellow-Button.png) no-repeat scroll 0 0;
+*/
+    background-size: 53px;
+}
+.game_kill{
+    margin:15px;
+}
+.game_kill>#kill{
+    margin-left: 6px;
+}
+.game_kill>#kill_word{
+    margin-top: 7px;
+}
+.talk_box>textarea{
+margin: 0px 0px 21px;
+height: 272px;
+max-height: 272px;
+width: 292px;
+max-width: 292px;
+}
+.game_talk input{
+    margin-left: 2px;
+    width: 235px;
+    margin-top: 3PX;
+}
+.game_talk>#talk{
+    position: relative;
+    top: -3px;
+    left: 9px;
+}

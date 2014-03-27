@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <head>
+    <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
+    <script type="text/JavaScript" src="public/js/result.js"></script>
+    <link href="public/css/result.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    {% for user in info %}
+      <p>{{ user.uname }}</p>
+      {% for game in user.games %}
+        <p>game.a = {{ game.a }}</p>
+        <p>game.b = {{ game.b }}</p>
+      {% endfor %}
+    {% endfor %}
+  </body>
+</html>

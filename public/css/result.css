@@ -1,0 +1,47 @@
+.main_top{
+    background:url(../img/black960.30.png);
+    height:30px;
+    width:100%;
+}
+.iframe{
+    margin-left: 1165px;
+    position:absolute;
+    color:#fff;
+}
+.main_top img{
+    margin-top: 3px;
+    margin-left: 37px;
+}
+body{
+    background:url(../img/img2.png) center center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+#game_record{
+    background:url(../img/Single.png) no-repeat scroll 0 0 transparent;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    color:#fff;
+    height:500px;
+}
+#game_player{
+    background:url(../img/playername.png) no-repeat scroll 0 0 transparent;
+    color:#fff;
+    height:500px;
+    width: 430px;
+}
+.main_con{
+    padding:50px 0px 0 50px;
+    
+}
+.player_name{
+    width: 366px;
+    padding: 45px 30px;
+}
+.play_content{
+    width: 366px;
+    padding: 55px 30px;
+}
+.player{
+}
